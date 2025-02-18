@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import "@haxtheweb/meme-maker/meme-maker.js"; 
 
 /**
  * Now it's your turn. Here's what we need to try and do:
@@ -84,6 +85,25 @@ button:hover {
   color: white;
   transition: 0.4s;
 }
+
+details summary {
+    text-align: left;
+    font-size: 20px;
+    padding: 8px 0;
+  }
+
+  details[open] summary {
+    font-weight: bold;
+  }
+  
+  details div {
+    border: 2px solid black;
+    text-align: left;
+    padding: 8px;
+    height: 70px;
+    overflow: auto;
+  }
+
     `;
   }
 
@@ -104,10 +124,10 @@ button:hover {
       <div class="card">
         <h1 class="cardheader">${this.title}</h1>
           <img src=${this.image} alt=${this.title} />
-        <p>Take an exciting journey beyond Earth to explore the moon. Experience life among the stars.</p>
         <details ?open="${this.fancy}" @toggle="${this.openChanged}">
         <summary>Description</summary>
         <div>
+        <p>Take an exciting journey beyond Earth to explore the moon. Experience life among the stars.</p>
         <slot>${this.description}</slot>
         </div>
         </details>
